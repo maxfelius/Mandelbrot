@@ -59,14 +59,18 @@ class Mandelbrot:
 
         print(f'Elapsed time for step size = {self.step} is {time.time()-start} seconds...')
 
-        plt.figure()
+        fig = plt.figure()
         plt.imshow(m[:,:,2],cmap='hot',extent=[self.xmin,self.xmax,(self.ymin*-1j).real,(self.ymax*-1j).real])
         plt.ylabel('Im')
         plt.xlabel('Re')
         plt.title('Mandelbrot Plot')
+        
+        #save fig
+        #plt.imsave('Mandelbrot.png',fig)
+        plt.savefig('Mandelbrot.png')
+
+        #show image
         plt.show()
-
-
 
 if __name__ == '__main__':
 	step = 0.005
